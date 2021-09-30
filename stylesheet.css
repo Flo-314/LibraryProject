@@ -1,0 +1,17 @@
+body{
+    display: flex;
+    flex-direction: column;
+}
+.books-container{
+    display: flex;
+    
+}
+.book{
+    display: flex;
+    padding: 5px;
+    margin: 50px;
+    border: 4px solid black;
+    height: 150px;
+    width: 150px;
+    flex-grow: 5;
+}
