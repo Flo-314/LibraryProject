@@ -1,3 +1,6 @@
+
+
+
 const bookContainer = document.querySelector(".books-container");
 const addBookContainer = document.querySelector(".addbook-container");
 const addBtn = document.querySelector(".bookBtn");
@@ -34,7 +37,9 @@ inputContainers.forEach((element) => {
 }); */
 
 //array donde guardo toda la info
-let myLibrary = [];
+let myLibrary = [{
+
+}];
 
 //function prototype
 function Book(title, autor, pages, readState) {
@@ -76,3 +81,4 @@ function printBook(title, autor, pages, readState){
     bookContainer.appendChild(e);
     e.append(h3,h4,h5,h6,readBox)
 }
+
