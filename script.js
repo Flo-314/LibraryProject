@@ -1,6 +1,3 @@
-
-
-
 const bookContainer = document.querySelector(".books-container");
 const addBookContainer = document.querySelector(".addbook-container");
 const addBtn = document.querySelector(".bookBtn");
@@ -11,14 +8,15 @@ const titleInput = document.querySelector(".inputTitle");
 const autorInput = document.querySelector(".inputAutor");
 const pagesInput = document.querySelector(".inputPages");
 const readStateInput = document.querySelector(".inputReadState");
-
+const imgInput = document.querySelector(".inputUrl")
 //toma los valores de los input y les pasa la funcion addbook cuando es clickeado
 sumbitBtn.addEventListener("mousedown", () => {
   addBookToLibrary(
     titleInput.value,
     autorInput.value,
     pagesInput.value,
-    readStateInput.checked
+    readStateInput.checked,
+    imgInput.value
   );
 });
 // saca el hidden
@@ -30,19 +28,13 @@ closeBtn.addEventListener("mousedown", () => {
   addBookContainer.hidden = true;
 });
 
-/* // ni idea q era esto
-inputContainers.forEach((element) => {
-  element.setAttribute("type", "text");
-  element.setAttribute("value", "Hello World!");
-}); */
+
 
 //array donde guardo toda la info
-let myLibrary = [{
-
-}];
+let myLibrary = [{}];
 
 //function prototype
-function Book(title, autor, pages, readState) {
+function Book(title, autor, pages, readState,image) {
   this.title = title;
   this.autor = autor;
   this.pages = pages;
@@ -53,32 +45,33 @@ function Book(title, autor, pages, readState) {
 }
 
 //crea un nevo objeto usando como prototipo la funcion book
-function addBookToLibrary(title, autor, pages, readState) {
+function addBookToLibrary(title, autor, pages, readState,image) {
   //Tansforma el True/False de la checkbox en una string
   if (readState == true) {
-    readState = true
+    readState = true;
   } else {
-    readState =  false
+    readState = false;
   }
-  printBook(title, autor, pages, readState)
-  let add = new Book(title, autor, pages, readState);
+  printBook(title, autor, pages, readState,image);
+  let add = new Book(title, autor, pages, readState,image);
   myLibrary.push(add);
 }
-function printBook(title, autor, pages, readState){
- let e = document.createElement("div");
-    let h3 = document.createElement("h3")
-    let h4 = document.createElement("h4")
-    let h5 = document.createElement("h5")
-    let h6 = document.createElement("h6")
-    let readBox = document.createElement("input")
-    readBox.type = "checkbox"
-    readBox.checked = readStateInput.checked
-    e.className = "book";
-    h3.textContent = title
-    h4.textContent = autor
-    h5.textContent = pages
-    h6.textContent = readState
-    bookContainer.appendChild(e);
-    e.append(h3,h4,h5,h6,readBox)
+function printBook(title, autor, pages, readState,image) {
+  let e = document.createElement("div");
+  let img = document.createElement("img");
+  let h3 = document.createElement("h3");
+  let h4 = document.createElement("h4");
+  let h5 = document.createElement("h5");
+  let h6 = document.createElement("h6");
+  let readBox = document.createElement("input");
+  readBox.type = "checkbox";
+  readBox.checked = readStateInput.checked;
+  e.className = "book";
+  img.src = image
+  h3.textContent = title;
+  h4.textContent = autor;
+  h5.textContent = pages;
+  h6.textContent = readState;
+  bookContainer.appendChild(e);
+  e.append(img,h3, h4, h5, h6, readBox);
 }
-

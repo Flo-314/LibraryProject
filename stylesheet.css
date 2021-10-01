@@ -110,3 +110,7 @@ hr {
 .first-container h1 {
   font-weight: 400;
 }
+img{
+    width: 260px;
+    height: 260px;
+}
