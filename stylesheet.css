@@ -2,6 +2,8 @@ body{
     display: flex;
     flex-direction: column;
 }
+
+
 .books-container{
     display: flex;
     
@@ -15,3 +17,15 @@ body{
     width: 150px;
     flex-grow: 5;
 }
+.button-container{
+    display: flex;
+    justify-content:space-evenly;
+}
+
+.addbook-container{
+    display: flex;
+    flex-direction: column;
+}
+[hidden]{
+    display:none;
+  }
