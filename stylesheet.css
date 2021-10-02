@@ -22,12 +22,10 @@ body {
   align-items: center;
   font-weight: 700;
   font-family: Calibri, "rubik";
-  padding: 75px;
   background-color: #252831;
   height: 100%;
   width: 100%;
-  margin-left: auto;
-  margin-right: auto;
+
 }
 .first-container h1 {
   font-weight: 400;
@@ -38,9 +36,10 @@ body {
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  margin-left: 65px;
+  margin-left: 370px;
   width: 100%;
   font-weight: 400;
+  margin-top: 80px;
 }
 .logotitle{
   display: flex;
@@ -67,6 +66,8 @@ hr {
 .books-container {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
+  margin: 0px;
 }
 
 .book {
