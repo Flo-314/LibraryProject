@@ -52,18 +52,31 @@ function printBook(title, autor, pages, readState,image) {
   let h3 = document.createElement("h3");
   let h4 = document.createElement("h4");
   let h5 = document.createElement("h5");
-  let h6 = document.createElement("h6");
-  let readBox = document.createElement("input");
-  readBox.type = "checkbox";
-  readBox.checked = readStateInput.checked;
+  let readBox = document.createElement("button");
+  readBox.className = readState + " readStateBtn"
+  if(readBox.className == "false readStateBtn"){
+    readBox.textContent = "No Leído"
+  }
+  else{
+    readBox.textContent = "Leído"
+  }
+  readBox.addEventListener('click', function (e) {
+    if(e.target.className == "true readStateBtn"){
+    e.target.className = "false readStateBtn"
+    e.target.textContent = "No Leído"}
+    else{
+      e.target.className = "true readStateBtn"
+      e.target.textContent = "Leído"
+    }
+  })
   e.className = "book";
   div.className = "bookDiv"
   img.src = image
   h3.textContent = title;
   h4.textContent = autor;
   h5.textContent = pages + " pags.";
-  h6.textContent = readState;
   bookContainer.appendChild(e);
   e.append(img,div);
-  div.append(h3, h4, h5, h6, readBox)
+  div.append(h3, h4, h5, readBox)
+  
 }
