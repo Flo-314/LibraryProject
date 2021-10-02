@@ -102,6 +102,14 @@ function printBook(title, autor, pages, readState, image) {
   let h3 = document.createElement("h3");
   let h4 = document.createElement("h4");
   let h5 = document.createElement("h5");
+  let bin = document.createElement("img")
+  bin.src = "https://w7.pngwing.com/pngs/249/291/png-transparent-rubbish-bins-waste-paper-baskets-computer-icons-google-plus-miscellaneous-logo-waste.png"
+  bin.className = "bin"
+  //get the grandpather and removeit
+  bin.addEventListener("click", () =>{
+    let parent =bin.parentElement
+    parent.parentElement.remove()
+  })
   //add buton and it event listener
   let readBox = document.createElement("button");
   //depending tooks the value from the input btn  to print the input button.
@@ -133,5 +141,5 @@ function printBook(title, autor, pages, readState, image) {
   h5.textContent = pages + " pags.";
   bookContainer.appendChild(book);
   book.append(img, div);
-  div.append(h3, h4, h5, readBox);
+  div.append(h3, h4, h5, readBox,bin);
 }

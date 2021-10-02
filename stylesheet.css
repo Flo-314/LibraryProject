@@ -232,3 +232,14 @@ footer {
   scale: 1.15;
   transition: scale 0.1s;
 }
+.bin{
+  width: 40px;
+  height: 40px;
+  margin: 5px;
+  scale:  1;
+  transition: scale .5s;
+}
+.bin:hover{
+  scale:  1.18;
+  transition: scale .5s;
+}
