@@ -25,7 +25,6 @@ body {
   background-color: #252831;
   height: 100%;
   width: 100%;
-
 }
 .first-container h1 {
   font-weight: 400;
@@ -41,13 +40,13 @@ body {
   font-weight: 400;
   margin-top: 80px;
 }
-.logotitle{
+.logotitle {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
 }
-.header img{
+.header img {
   display: inline-flex;
   width: 75px;
   height: 75px;
@@ -85,7 +84,7 @@ hr {
 img {
   width: 260px;
   height: 260px;
-  object-fit: fill;
+  object-fit: cover;
   border-radius: 38px;
   display: inline-block;
 }
@@ -101,7 +100,7 @@ img {
   color: #f3f3f3;
   font-weight: 400;
   margin: 3px;
-  margin-top: 12px;
+  margin-top: 18px;
 }
 .bookDiv h4,
 h5 {
@@ -136,13 +135,18 @@ h5 {
 #mas {
   background-color: #434958;
   height: 260px;
-  width: 26 0px;
+  width: 260px;
 }
 #mas h2 {
   background-color: #434958;
   font-weight: 400;
 }
-
+.mas {
+  margin: 0px;
+  padding: 0px;
+  font-weight: 700;
+  font-size: 150px;
+}
 .second-container {
   display: flex;
   flex-direction: column;
@@ -153,21 +157,19 @@ h5 {
   width: 100%;
   font-family: Calibri, "rubik";
 }
-.second-container .titulo{
+.second-container .titulo {
   margin-top: 50px;
   color: black;
   font-weight: 500;
 }
-.second-container hr{
+.second-container hr {
   background-color: #9f85ff;
   margin-top: 8px;
   width: 200px;
   border-radius: 0px;
   border: none;
   height: 4px;
-
 }
-
 .addbook-container {
   display: flex;
   flex-direction: column;
@@ -177,13 +179,13 @@ h5 {
   border-radius: 12px;
   padding: 4px;
 }
-.addbook-container .buttons{
- display: flex;
- flex-direction: column;
- justify-content: center;
- align-items: center;
- margin: 8px;
-} 
+.addbook-container .buttons {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 8px;
+}
 
 input {
   background-color: #eaf0f7;
@@ -193,27 +195,9 @@ input {
   width: auto;
   height: 30px;
 }
-.mas {
-  margin: 0px;
-  padding: 0px;
-  font-weight: 700;
-  font-size: 150px;
-}
-
-footer{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: row;
-  width: 100%;
-  height: 200px;
-  background-color:#c9daed ;
-  color: #4b5764;
-  font-weight: 400;
-  font-size: 16px;
-}
-#sumbitBtn{
+#sumbitBtn {
   background-color: #727e8c;
+  transition: background-color 0.5s;
   border-radius: 25px;
   margin-top: 16px;
   width: 100%;
@@ -221,4 +205,30 @@ footer{
   font-weight: 600;
   color: white;
   font-size: 24px;
+}
+.addbook-container #sumbitBtn:hover {
+  background-color: #404549;
+  transition: background-color 0.5s;
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  width: 100%;
+  height: 200px;
+  background-color: #c9daed;
+  color: #4b5764;
+  font-weight: 400;
+  font-size: 16px;
+}
+
+.readStateBtn {
+  scale: 1;
+  transition: scale 0.1s;
+}
+.readStateBtn:hover {
+  scale: 1.15;
+  transition: scale 0.1s;
 }

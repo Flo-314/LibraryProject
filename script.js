@@ -3,19 +3,19 @@ const sumbitBtn = document.querySelector(".sumbitBtn");
 const titleInput = document.querySelector(".inputTitle");
 const autorInput = document.querySelector(".inputAutor");
 const pagesInput = document.querySelector(".inputPages");
-const inputBtn =document.querySelector(".inputBtn")
+const inputBtn = document.querySelector(".inputBtn");
 const imgInput = document.querySelector(".inputUrl");
-inputBtn.addEventListener("click" , () => {
-  if(inputBtn.classList == "true readStateBtn inputBtn"){
-    inputBtn.classList = "false readStateBtn inputBtn"
-    inputBtn.textContent = "No Leído"
+//change the text of the input button deppending in it class
+inputBtn.addEventListener("click", () => {
+  if (inputBtn.classList == "true readStateBtn inputBtn") {
+    inputBtn.classList = "false readStateBtn inputBtn";
+    inputBtn.textContent = "No Leído";
+  } else {
+    inputBtn.classList = "true readStateBtn inputBtn";
+    inputBtn.textContent = "Leído";
   }
-  else{
-    inputBtn.classList = "true readStateBtn inputBtn"
-    inputBtn.textContent = "Leído"
-  }
-})
-//toma los valores de los input y les pasa la funcion addbook cuando es clickeado
+});
+//took the values of the inputs and give its to the addBook function when it is clicked
 sumbitBtn.addEventListener("click", () => {
   addBookToLibrary(
     titleInput.value,
@@ -26,7 +26,7 @@ sumbitBtn.addEventListener("click", () => {
   );
 });
 
-//array donde guardo toda la info
+//Object array to store the books
 let myLibrary = [
   {
     title: "El Martin Fierro",
@@ -60,14 +60,14 @@ let myLibrary = [
       "https://static.wikia.nocookie.net/asimov/images/d/da/Fundaci%C3%B3n.jpg/revision/latest/scale-to-width-down/267?cb=20180826004226&path-prefix=es",
   },
   {
-    "title": "Klavierwerke. BWV 772-786",
-    "autor": "Johann Sebastian Bach",
-    "pages": "68",
-    "readState": true,
-    "image": "https://images-na.ssl-images-amazon.com/images/I/51w79UEKt4L.jpg"
-  }
+    title: "Klavierwerke. BWV 772-786",
+    autor: "Johann Sebastian Bach",
+    pages: "68",
+    readState: true,
+    image: "https://images-na.ssl-images-amazon.com/images/I/51w79UEKt4L.jpg",
+  },
 ];
-//printee los libros guardados
+//Print the stored books when the page is open.
 myLibrary.forEach((element) => {
   printBook(
     element.title,
@@ -87,12 +87,14 @@ function Book(title, autor, pages, readState, image) {
   this.image = image;
 }
 
-//crea un nevo objeto usando como prototipo la funcion book
+//create a new object using the Book prototype and store its in myLibrary
 function addBookToLibrary(title, autor, pages, readState, image) {
   let add = new Book(title, autor, pages, readState, image);
-  printBook(title, autor, pages, readState, image);
+  //add the book to the library and call Print Book Function
   myLibrary.push(add);
+  printBook(title, autor, pages, readState, image);
 }
+//  function that prints whenever a book is created
 function printBook(title, autor, pages, readState, image) {
   let book = document.createElement("div");
   let div = document.createElement("div");
@@ -102,17 +104,18 @@ function printBook(title, autor, pages, readState, image) {
   let h5 = document.createElement("h5");
   //add buton and it event listener
   let readBox = document.createElement("button");
-  if(readState == "true readStateBtn inputBtn" || readState == true){
-    readBox.className = "true readStateBtn"
-  }
-  else{
-    readBox.className = "false readStateBtn"
+  //depending tooks the value from the input btn  to print the input button.
+  if (readState == "true readStateBtn inputBtn" || readState == true) {
+    readBox.className = "true readStateBtn";
+  } else {
+    readBox.className = "false readStateBtn";
   }
   if (readBox.className == "false readStateBtn") {
     readBox.textContent = "No Leído";
   } else {
     readBox.textContent = "Leído";
   }
+  //change the text of the input button deppending in it class
   readBox.addEventListener("click", function (e) {
     if (e.target.className == "true readStateBtn") {
       e.target.className = "false readStateBtn";
