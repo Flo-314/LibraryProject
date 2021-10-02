@@ -78,8 +78,19 @@ img {
 .bookDiv {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   padding: 0px;
   margin: 0px;
+}
+.bookDiv h3{
+  color: #f3f3f3;
+  margin: 4px;
+  margin-top: 5px;
+}
+.bookDiv h4,h5{
+  color: #747b8c;
+  margin: 4px;
 }
 #mas {
   background-color: #434958;

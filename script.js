@@ -61,7 +61,7 @@ function printBook(title, autor, pages, readState,image) {
   img.src = image
   h3.textContent = title;
   h4.textContent = autor;
-  h5.textContent = pages;
+  h5.textContent = pages + " pags.";
   h6.textContent = readState;
   bookContainer.appendChild(e);
   e.append(img,div);
