@@ -54,7 +54,6 @@ hr {
 .books-container {
   display: flex;
   flex-wrap: wrap;
-  
 }
 
 .book {
@@ -83,20 +82,20 @@ img {
   align-items: center;
   padding: 0px;
   margin: 0px;
-  
 }
-.bookDiv h3{
+.bookDiv h3 {
   color: #f3f3f3;
   font-weight: 400;
   margin: 3px;
   margin-top: 12px;
 }
-.bookDiv h4,h5{
+.bookDiv h4,
+h5 {
   font-weight: 400;
   color: #747b8c;
   margin: 3px;
 }
-.readStateBtn{
+.readStateBtn {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -107,20 +106,18 @@ img {
   border-radius: 14px;
   margin-top: 4px;
   padding: 0;
-
 }
-.true.readStateBtn{
+.true.readStateBtn {
   background-color: #17ca8e;
   color: #16181c;
   font-size: 15px;
   font-weight: 600;
 }
-.false.readStateBtn{
-  background-color:  #e52a3c;
+.false.readStateBtn {
+  background-color: #e52a3c;
   color: #16181c;
   font-size: 15px;
   font-weight: 600;
-
 }
 #mas {
   background-color: #434958;
@@ -133,6 +130,9 @@ img {
 }
 
 .second-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: #eaf0f7;
   height: 100%;
   width: 100%;
