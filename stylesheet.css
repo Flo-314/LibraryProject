@@ -131,12 +131,21 @@ h5 {
 
 .second-container {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   background-color: #eaf0f7;
   height: 100%;
   width: 100%;
   font-family: Calibri, "rubik";
+}
+.second-container .titulo{
+  margin-top: 50px;
+  color: black;
+}
+.second-container hr{
+  background-color: #9f85ff;
+
 }
 
 .addbook-container {
