@@ -4,9 +4,21 @@ const titleInput = document.querySelector(".inputTitle");
 const autorInput = document.querySelector(".inputAutor");
 const pagesInput = document.querySelector(".inputPages");
 const readStateInput = document.querySelector(".inputReadState");
+const inputBtn =document.querySelector(".inputBtn")
 const imgInput = document.querySelector(".inputUrl");
+
+inputBtn.addEventListener("click" , () => {
+  if(inputBtn.classList == "true readStateBtn inputBtn"){
+    inputBtn.classList = "false readStateBtn inputBtn"
+    inputBtn.textContent = "No Leído"
+  }
+  else{
+    inputBtn.classList = "true readStateBtn inputBtn"
+    inputBtn.textContent = "Leído"
+  }
+})
 //toma los valores de los input y les pasa la funcion addbook cuando es clickeado
-sumbitBtn.addEventListener("mousedown", () => {
+sumbitBtn.addEventListener("click", () => {
   addBookToLibrary(
     titleInput.value,
     autorInput.value,
@@ -80,11 +92,11 @@ function Book(title, autor, pages, readState, image) {
 //crea un nevo objeto usando como prototipo la funcion book
 function addBookToLibrary(title, autor, pages, readState, image) {
   //Tansforma el True/False de la checkbox en una string
-  if (readState == true) {
+ /*  if (readState == true) {
     readState = true;
   } else {
     readState = false;
-  }
+  } */
   let add = new Book(title, autor, pages, readState, image);
   printBook(title, autor, pages, readState, image);
   myLibrary.push(add);
