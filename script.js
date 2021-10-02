@@ -49,6 +49,13 @@ let myLibrary = [
     image:
       "https://static.wikia.nocookie.net/asimov/images/d/da/Fundaci%C3%B3n.jpg/revision/latest/scale-to-width-down/267?cb=20180826004226&path-prefix=es",
   },
+  {
+    "title": "Klavierwerke. BWV 772-786",
+    "autor": "Johann Sebastian Bach",
+    "pages": "68",
+    "readState": true,
+    "image": "https://images-na.ssl-images-amazon.com/images/I/51w79UEKt4L.jpg"
+  }
 ];
 //printee los libros guardados
 myLibrary.forEach((element) => {

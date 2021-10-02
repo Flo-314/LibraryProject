@@ -46,8 +46,10 @@ hr {
   background-color: yellow;
   width: 1000px;
   height: 2px;
+  border: none;
   border-radius: 20%;
   margin: 0px;
+  margin-top: 15px;
   margin-bottom: 30px;
   background-color: #434958;
 }
@@ -121,8 +123,8 @@ h5 {
 }
 #mas {
   background-color: #434958;
-  height: 250px;
-  width: 250px;
+  height: 260px;
+  width: 260px;
 }
 #mas h2 {
   background-color: #434958;
@@ -142,25 +144,33 @@ h5 {
 .second-container .titulo{
   margin-top: 50px;
   color: black;
+  font-weight: 500;
 }
 .second-container hr{
   background-color: #9f85ff;
+  margin-top: 8px;
+  width: 200px;
+  border: none;
+  height: 4px;
 
 }
 
 .addbook-container {
   display: flex;
   flex-direction: column;
-  background-color: #1c2029;
-  border-radius: 12px;
-  width: 300px;
-  height: 300px;
+  width: 500px;
+  margin-bottom: 150px;
+  border: 3px solid #434958;
+  border-radius: 8px;
+  padding: 2px;
 }
 input {
-  background-color: #293651;
-  border-radius: 7px;
+  background-color: #eaf0f7;
   border-style: none;
-  color: white;
+  border-bottom: 2px solid #434958;
+  color: black;
+  width: auto;
+  height: 30px;
 }
 .mas {
   margin: 0px;
