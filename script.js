@@ -3,10 +3,8 @@ const sumbitBtn = document.querySelector(".sumbitBtn");
 const titleInput = document.querySelector(".inputTitle");
 const autorInput = document.querySelector(".inputAutor");
 const pagesInput = document.querySelector(".inputPages");
-const readStateInput = document.querySelector(".inputReadState");
 const inputBtn =document.querySelector(".inputBtn")
 const imgInput = document.querySelector(".inputUrl");
-
 inputBtn.addEventListener("click" , () => {
   if(inputBtn.classList == "true readStateBtn inputBtn"){
     inputBtn.classList = "false readStateBtn inputBtn"
@@ -23,7 +21,7 @@ sumbitBtn.addEventListener("click", () => {
     titleInput.value,
     autorInput.value,
     pagesInput.value,
-    readStateInput.checked,
+    inputBtn.classList,
     imgInput.value
   );
 });
@@ -91,12 +89,6 @@ function Book(title, autor, pages, readState, image) {
 
 //crea un nevo objeto usando como prototipo la funcion book
 function addBookToLibrary(title, autor, pages, readState, image) {
-  //Tansforma el True/False de la checkbox en una string
- /*  if (readState == true) {
-    readState = true;
-  } else {
-    readState = false;
-  } */
   let add = new Book(title, autor, pages, readState, image);
   printBook(title, autor, pages, readState, image);
   myLibrary.push(add);
@@ -110,7 +102,12 @@ function printBook(title, autor, pages, readState, image) {
   let h5 = document.createElement("h5");
   //add buton and it event listener
   let readBox = document.createElement("button");
-  readBox.className = readState + " readStateBtn";
+  if(readState == "true readStateBtn inputBtn" || readState == true){
+    readBox.className = "true readStateBtn"
+  }
+  else{
+    readBox.className = "false readStateBtn"
+  }
   if (readBox.className == "false readStateBtn") {
     readBox.textContent = "No Leído";
   } else {
@@ -125,7 +122,6 @@ function printBook(title, autor, pages, readState, image) {
       e.target.textContent = "Leído";
     }
   });
-
   book.className = "book";
   div.className = "bookDiv";
   img.src = image;
