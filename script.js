@@ -1,9 +1,5 @@
 const bookContainer = document.querySelector(".books-container");
-const addBookContainer = document.querySelector(".addbook-container");
-const addBtn = document.querySelector(".bookBtn");
-const inputContainers = document.querySelectorAll(".input");
-const closeBtn = document.querySelector(".bookBtnX");
-const sumbitBtn = document.querySelector(".sumbitBtn");
+ const sumbitBtn = document.querySelector(".sumbitBtn");
 const titleInput = document.querySelector(".inputTitle");
 const autorInput = document.querySelector(".inputAutor");
 const pagesInput = document.querySelector(".inputPages");
@@ -19,14 +15,7 @@ sumbitBtn.addEventListener("mousedown", () => {
     imgInput.value
   );
 });
-// saca el hidden
-addBtn.addEventListener("mousedown", () => {
-  addBookContainer.hidden = false;
-});
-// pone el hidden
-closeBtn.addEventListener("mousedown", () => {
-  addBookContainer.hidden = true;
-});
+
 
 
 
@@ -58,6 +47,7 @@ function addBookToLibrary(title, autor, pages, readState,image) {
 }
 function printBook(title, autor, pages, readState,image) {
   let e = document.createElement("div");
+  let div = document.createElement("div")
   let img = document.createElement("img");
   let h3 = document.createElement("h3");
   let h4 = document.createElement("h4");
@@ -67,11 +57,13 @@ function printBook(title, autor, pages, readState,image) {
   readBox.type = "checkbox";
   readBox.checked = readStateInput.checked;
   e.className = "book";
+  div.className = "bookDiv"
   img.src = image
   h3.textContent = title;
   h4.textContent = autor;
   h5.textContent = pages;
   h6.textContent = readState;
   bookContainer.appendChild(e);
-  e.append(img,h3, h4, h5, h6, readBox);
+  e.append(img,div);
+  div.append(h3, h4, h5, h6, readBox)
 }
