@@ -26,47 +26,8 @@ sumbitBtn.addEventListener("click", () => {
   );
 });
 //Object array to store the books
-let myLibrary = [
-/*   {
-    title: "El Martin Fierro",
-    autor: "Jose Hernandez",
-    pages: "92",
-    readState: true,
-    image:
-      "http://www.cervantesvirtual.com/s3/BVMC_OBRAS/ff2/9ee/5a8/2b1/11d/fac/c70/021/85c/e60/64/mimes/imagenes/ff29ee5a-82b1-11df-acc7-002185ce6064_2.jpg",
-  },
-  {
-    title: "Ficciones",
-    autor: "Jorge Luis Borges",
-    pages: "140",
-    readState: true,
-    image: "https://jackmoreno.files.wordpress.com/2018/11/ficciones.jpg",
-  },
-  {
-    title: "El Señor De Los Anillos",
-    autor: "J.R.R Tolkien",
-    pages: "758",
-    readState: false,
-    image:
-      "https://kbimages1-a.akamaihd.net/fbfdfad3-fd03-4202-9fad-019828ad2601/353/569/90/False/the-two-towers-the-lord-of-the-rings-book-2-1.jpg",
-  },
-  {
-    title: "Fundacion",
-    autor: "Isaac Asimov",
-    pages: "1237",
-    readState: true,
-    image:
-      "https://static.wikia.nocookie.net/asimov/images/d/da/Fundaci%C3%B3n.jpg/revision/latest/scale-to-width-down/267?cb=20180826004226&path-prefix=es",
-  },
-  {
-    title: "Klavierwerke. BWV 772-786",
-    autor: "Johann Sebastian Bach",
-    pages: "68",
-    readState: true,
-    image: "https://images-na.ssl-images-amazon.com/images/I/51w79UEKt4L.jpg",
-  },  */
-];
-checkLocalStorage()
+let myLibrary = [];
+checkLocalStorage();
 
 //Print the stored books when the page is open.
 myLibrary.forEach((element) => {
@@ -90,6 +51,11 @@ function Book(title, autor, pages, readState, image) {
 
 //create a new object using the Book prototype and store its in myLibrary
 function addBookToLibrary(title, autor, pages, readState, image) {
+  if (readState == "true readStateBtn inputBtn" || readState == true) {
+    readState = "true readStateBtn";
+  } else {
+    readState = "false readStateBtn";
+  }
   let add = new Book(title, autor, pages, readState, image);
   //add the book to the library and call Print Book Function
   myLibrary.push(add);
@@ -117,7 +83,11 @@ function printBook(title, autor, pages, readState, image) {
     removeFromLibrary(title);
   });
   //depending tooks the value from the input btn  to print the input button.
-  if (readState == "true readStateBtn inputBtn" || readState == true) {
+  if (
+    readState == "true readStateBtn inputBtn" ||
+    readState == true ||
+    readState == "true readStateBtn"
+  ) {
     readBox.className = "true readStateBtn";
   } else {
     readBox.className = "false readStateBtn";
@@ -155,23 +125,20 @@ function removeFromLibrary(BookTitle) {
       object.splice(index, 1);
     }
   });
-  
+  localStorage.setItem("session", JSON.stringify(myLibrary));
 }
 //Store all the values of myLibrary objects
-function addToLocalStorage(object){
-  var a = [];
+function addToLocalStorage(object) {
+  let a = [];
   // Parse the serialized data back into an aray of objects
-  a = JSON.parse(localStorage.getItem('session')) || [];
+  a = JSON.parse(localStorage.getItem("session")) || [];
   // Push the new data (whether it be an object or anything else) onto the array
   a.push(object);
-  // Alert the array value
-  alert(a);  // Should be something like [Object array]
   // Re-serialize the array back into a string and store it in localStorage
-  localStorage.setItem('session', JSON.stringify(a));
- }
+  localStorage.setItem("session", JSON.stringify(a));
+}
 function checkLocalStorage() {
-if(JSON.parse(localStorage.getItem("session")) !== null){
-myLibrary = (JSON.parse(localStorage.getItem("session"))) || [];
+  if (JSON.parse(localStorage.getItem("session")) !== null) {
+    myLibrary = JSON.parse(localStorage.getItem("session")) || [];
+  }
 }
-}
-

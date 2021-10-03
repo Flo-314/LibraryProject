@@ -132,10 +132,27 @@ h5 {
   font-size: 15px;
   font-weight: 600;
 }
+.bin{
+  width: 40px;
+  height: 40px;
+  margin: 5px;
+  scale:  1;
+  transition: scale .5s;
+}
+.bin:hover{
+  scale:  1.18;
+  transition: scale .5s;
+}
 #mas {
   background-color: #434958;
   height: 260px;
   width: 260px;
+  transition: scale 1s;
+}
+#mas:hover{
+scale: 1.175;
+transition: scale 1s;
+
 }
 #mas h2 {
   background-color: #434958;
@@ -197,6 +214,7 @@ input {
 }
 #sumbitBtn {
   background-color: #727e8c;
+  border: none;
   transition: background-color 0.5s;
   border-radius: 25px;
   margin-top: 16px;
@@ -231,15 +249,4 @@ footer {
 .readStateBtn:hover {
   scale: 1.15;
   transition: scale 0.1s;
-}
-.bin{
-  width: 40px;
-  height: 40px;
-  margin: 5px;
-  scale:  1;
-  transition: scale .5s;
-}
-.bin:hover{
-  scale:  1.18;
-  transition: scale .5s;
 }
