@@ -64,7 +64,7 @@ let myLibrary = [
     pages: "68",
     readState: true,
     image: "https://images-na.ssl-images-amazon.com/images/I/51w79UEKt4L.jpg",
-  }, */
+  },  */
 ];
 checkLocalStorage()
 
@@ -159,11 +159,19 @@ function removeFromLibrary(BookTitle) {
 }
 //Store all the values of myLibrary objects
 function addToLocalStorage(object){
-  localStorage.setItem("book", JSON.stringify(object));
-}
+  var a = [];
+  // Parse the serialized data back into an aray of objects
+  a = JSON.parse(localStorage.getItem('session')) || [];
+  // Push the new data (whether it be an object or anything else) onto the array
+  a.push(object);
+  // Alert the array value
+  alert(a);  // Should be something like [Object array]
+  // Re-serialize the array back into a string and store it in localStorage
+  localStorage.setItem('session', JSON.stringify(a));
+ }
 function checkLocalStorage() {
-library = JSON.parse(localStorage.getItem("book"));
-console.log(library) 
-myLibrary.push(library)
-  }
+if(JSON.parse(localStorage.getItem("session")) !== null){
+myLibrary = (JSON.parse(localStorage.getItem("session"))) || [];
+}
+}
 
