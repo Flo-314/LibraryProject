@@ -109,6 +109,7 @@ function printBook(title, autor, pages, readState, image) {
   bin.addEventListener("click", () =>{
     let parent =bin.parentElement
     parent.parentElement.remove()
+    removeFromLibrary(title)
   })
   //add buton and it event listener
   let readBox = document.createElement("button");
@@ -142,4 +143,16 @@ function printBook(title, autor, pages, readState, image) {
   bookContainer.appendChild(book);
   book.append(img, div);
   div.append(h3, h4, h5, readBox,bin);
+}
+
+
+
+
+// Search one for one if the parameter is === to myLibrary.title. if it is it remove it 
+function removeFromLibrary(BookTitle){
+myLibrary.forEach(function(book, index, object) { 
+  if (book.title == BookTitle) {
+    object.splice(index, 1);
+  }
+});
 }
