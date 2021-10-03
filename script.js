@@ -9,10 +9,10 @@ const imgInput = document.querySelector(".inputUrl");
 inputBtn.addEventListener("click", () => {
   if (inputBtn.classList == "true readStateBtn inputBtn") {
     inputBtn.classList = "false readStateBtn inputBtn";
-    inputBtn.textContent = "No Leído";
+    inputBtn.textContent = "Not Read";
   } else {
     inputBtn.classList = "true readStateBtn inputBtn";
-    inputBtn.textContent = "Leído";
+    inputBtn.textContent = "Read";
   }
 });
 //took the values of the inputs and give its to the addBook function when it is clicked
@@ -93,18 +93,18 @@ function printBook(title, autor, pages, readState, image) {
     readBox.className = "false readStateBtn";
   }
   if (readBox.className == "false readStateBtn") {
-    readBox.textContent = "No Leído";
+    readBox.textContent = "Not Read";
   } else {
-    readBox.textContent = "Leído";
+    readBox.textContent = "Read";
   }
   //change the text of the input button deppending in it class
   readBox.addEventListener("click", function (e) {
     if (e.target.className == "true readStateBtn") {
       e.target.className = "false readStateBtn";
-      e.target.textContent = "No Leído";
+      e.target.textContent = "Not Read";
     } else {
       e.target.className = "true readStateBtn";
-      e.target.textContent = "Leído";
+      e.target.textContent = "Read";
     }
   });
   book.className = "book";
