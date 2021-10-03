@@ -25,10 +25,9 @@ sumbitBtn.addEventListener("click", () => {
     imgInput.value
   );
 });
-
 //Object array to store the books
 let myLibrary = [
-  {
+/*   {
     title: "El Martin Fierro",
     autor: "Jose Hernandez",
     pages: "92",
@@ -65,8 +64,10 @@ let myLibrary = [
     pages: "68",
     readState: true,
     image: "https://images-na.ssl-images-amazon.com/images/I/51w79UEKt4L.jpg",
-  },
+  }, */
 ];
+checkLocalStorage()
+
 //Print the stored books when the page is open.
 myLibrary.forEach((element) => {
   printBook(
@@ -92,6 +93,7 @@ function addBookToLibrary(title, autor, pages, readState, image) {
   let add = new Book(title, autor, pages, readState, image);
   //add the book to the library and call Print Book Function
   myLibrary.push(add);
+  addToLocalStorage(add);
   printBook(title, autor, pages, readState, image);
 }
 //  function that prints whenever a book is created
@@ -102,17 +104,18 @@ function printBook(title, autor, pages, readState, image) {
   let h3 = document.createElement("h3");
   let h4 = document.createElement("h4");
   let h5 = document.createElement("h5");
-  let bin = document.createElement("img")
-  bin.src = "https://w7.pngwing.com/pngs/249/291/png-transparent-rubbish-bins-waste-paper-baskets-computer-icons-google-plus-miscellaneous-logo-waste.png"
-  bin.className = "bin"
-  //get the grandpather and removeit
-  bin.addEventListener("click", () =>{
-    let parent =bin.parentElement
-    parent.parentElement.remove()
-    removeFromLibrary(title)
-  })
-  //add buton and it event listener
   let readBox = document.createElement("button");
+  let bin = document.createElement("img");
+
+  bin.src =
+    "https://w7.pngwing.com/pngs/249/291/png-transparent-rubbish-bins-waste-paper-baskets-computer-icons-google-plus-miscellaneous-logo-waste.png";
+  bin.className = "bin";
+  //get the grandpather and removeit. also calls Remove From Library to remove it from the array.
+  bin.addEventListener("click", () => {
+    let parent = bin.parentElement;
+    parent.parentElement.remove();
+    removeFromLibrary(title);
+  });
   //depending tooks the value from the input btn  to print the input button.
   if (readState == "true readStateBtn inputBtn" || readState == true) {
     readBox.className = "true readStateBtn";
@@ -142,17 +145,25 @@ function printBook(title, autor, pages, readState, image) {
   h5.textContent = pages + " pags.";
   bookContainer.appendChild(book);
   book.append(img, div);
-  div.append(h3, h4, h5, readBox,bin);
+  div.append(h3, h4, h5, readBox, bin);
 }
 
-
-
-
-// Search one for one if the parameter is === to myLibrary.title. if it is it remove it 
-function removeFromLibrary(BookTitle){
-myLibrary.forEach(function(book, index, object) { 
-  if (book.title == BookTitle) {
-    object.splice(index, 1);
+// Search one for one if the parameter is === to myLibrary.title. if it is it remove it
+function removeFromLibrary(BookTitle) {
+  myLibrary.forEach(function (book, index, object) {
+    if (book.title == BookTitle) {
+      object.splice(index, 1);
+    }
+  });
+  
+}
+//Store all the values of myLibrary objects
+function addToLocalStorage(object){
+  localStorage.setItem("book", JSON.stringify(object));
+}
+function checkLocalStorage() {
+library = JSON.parse(localStorage.getItem("book"));
+console.log(library) 
+myLibrary.push(library)
   }
-});
-}
+
