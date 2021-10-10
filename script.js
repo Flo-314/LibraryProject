@@ -79,7 +79,6 @@ function printBook(title, autor, pages, readState, image) {
   bin.src =
     "https://w7.pngwing.com/pngs/249/291/png-transparent-rubbish-bins-waste-paper-baskets-computer-icons-google-plus-miscellaneous-logo-waste.png";
   bin.className = "bin";
-  //get the grandpather and removeit. also calls Remove From Library to remove it from the array.
   bin.addEventListener("click", () => {
     let parent = bin.parentElement;
     parent.parentElement.remove();
