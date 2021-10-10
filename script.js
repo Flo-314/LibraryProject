@@ -5,7 +5,7 @@ const autorInput = document.querySelector(".inputAutor");
 const pagesInput = document.querySelector(".inputPages");
 const inputBtn = document.querySelector(".inputBtn");
 const imgInput = document.querySelector(".inputUrl");
-//change the text of the input button deppending in it class
+
 inputBtn.addEventListener("click", () => {
   if (inputBtn.classList == "true readStateBtn inputBtn") {
     inputBtn.classList = "false readStateBtn inputBtn";
@@ -15,7 +15,6 @@ inputBtn.addEventListener("click", () => {
     inputBtn.textContent = "Read";
   }
 });
-//took the values of the inputs and give its to the addBook function when it is clicked
 sumbitBtn.addEventListener("click", () => {
   addBookToLibrary(
     titleInput.value,
@@ -25,11 +24,11 @@ sumbitBtn.addEventListener("click", () => {
     imgInput.value
   );
 });
-//Object array to store the books
+
+
 let myLibrary = [];
 checkLocalStorage();
 
-//Print the stored books when the page is open.
 myLibrary.forEach((element) => {
   printBook(
     element.title,
@@ -40,13 +39,17 @@ myLibrary.forEach((element) => {
   );
 });
 
-//function prototype
-function Book(title, autor, pages, readState, image) {
-  this.title = title;
-  this.autor = autor;
-  this.pages = pages;
-  this.readState = readState;
-  this.image = image;
+
+
+
+class Book{
+  constructor(title, autor, pages, readState, image){
+    this.title = title;
+    this.autor = autor;
+    this.pages = pages;
+    this.readState = readState;
+    this.image = image;
+  }
 }
 
 //create a new object using the Book prototype and store its in myLibrary
